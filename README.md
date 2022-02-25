@@ -1,1 +1,1 @@
-# sanic_assignment
+# Run command: python main.py
