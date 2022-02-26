@@ -21,8 +21,8 @@ async def create_user(request):
     password = params["password"]
     # Validate email
     valid_email = Utils.validate_email(email_id)
-    if not valid_email:
-        return json({'status_msg': 'invalid email'}, status=400)
+    if not valid_email or password == "":
+        return json({'status_msg': 'invalid email or password'}, status=400)
     #create user
     user_creation_response = User(email_id=email_id, password=password).create_user()
     if user_creation_response.get("status_msg") == "existing":
